@@ -22,12 +22,17 @@
     $scope.username = 'Nick';
 
     /**
-     * changeUsername
-     * Description: Updates the scope username
+     * usersArray
+     * Description: A generic list of users, possibly pulled from a database, in
+     * array notation.
      */
-    $scope.changeUsername = function(username) {
-      $scope.username = username;
-    };
+    $scope.usersArray = [
+      ['BB', 'King'],
+      ['Ray', 'Charles'],
+      ['Muddy', 'Waters'],
+      ['Lightnin', 'Hopkins'],
+      ['Howlin', 'Wolf']
+    ];
   }]);
 
 })();
