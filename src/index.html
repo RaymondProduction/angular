@@ -1,10 +1,10 @@
 <!doctype html>
-<html ng-app>
-<head>
-     <script src="js/vendor/angular-1.2.32/angular.js"></script>
-</head>
-<body>
-  <input type="text" ng-model = "name">
-  <h2>Hello {{name}}!</h2>
-</body>
+<html lang="en" ng-app="app">
+  <head>
+    <script src="js/vendor/angular-1.2.32/angular.js"></script>
+  </head>
+  <body ng-controller="AppController">
+      <p>Hello, <em>{{ username }}</em>!</p>
+  </body>
+  <script src="app/app.js"></script>
 </html>
