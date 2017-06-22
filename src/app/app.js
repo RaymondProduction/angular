@@ -21,18 +21,22 @@
   .controller('AppController', ['$scope', function($scope) {
     $scope.username = 'Nick';
 
-    /**
-     * usersArray
-     * Description: A generic list of users, possibly pulled from a database, in
-     * array notation.
-     */
-    $scope.usersArray = [
-      ['BB', 'King'],
-      ['Ray', 'Charles'],
-      ['Muddy', 'Waters'],
-      ['Lightnin', 'Hopkins'],
-      ['Howlin', 'Wolf']
-    ];
+    $scope.usersObject = [{
+      firstname: 'BB',
+      lastname: 'King'
+    }, {
+      firstname: 'Ray',
+      lastname: 'Charles'
+    }, {
+      firstname: 'Muddy',
+      lastname: 'Waters'
+    }, {
+      firstname: 'Lightnin',
+      lastname: 'Hopkins'
+    }, {
+      firstname: 'Howlin',
+      lastname: 'Wolf'
+    }];
   }]);
 
 })();

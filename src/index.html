@@ -4,16 +4,16 @@
     <script src="js/vendor/angular-1.2.32/angular.js"></script>
   </head>
   <body ng-controller="AppController">
-    <table>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-      </tr>
-      <tr ng-repeat="user in usersArray">
-        <td>{{ user[0] }}</td>
-        <td>{{ user[1] }}</td>
-      </tr>
-    </table>
+  <table>
+     <tr>
+       <th>First Name</th>
+       <th>Last Name</th>
+     </tr>
+     <tr ng-repeat="user in usersObject">
+       <td>{{ user.firstname }}</td>
+       <td>{{ user.lastname }}</td>
+     </tr>
+  </table>
   </body>
   <script src="app/app.js"></script>
 </html>
