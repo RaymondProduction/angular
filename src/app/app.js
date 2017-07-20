@@ -1,42 +1,40 @@
-(function() {
+angular.module('ngRouteExample', ['ngRoute'])
 
-  'use strict';
+ .controller('MainController', function($scope, $route, $routeParams, $location) {
+     $scope.$route = $route;
+     $scope.$location = $location;
+     $scope.$routeParams = $routeParams;
+ })
 
-  /**
-   * angular
-   * Description: Angular!
-   */
-  angular
+ .controller('BookController', function($scope, $routeParams) {
+     $scope.name = 'BookController';
+     $scope.params = $routeParams;
+ })
 
-  /**
-   * app
-   * Description: Устанавливаем первоначальное состояние приложения
-   */
-    .module('app', [])
+ .controller('ChapterController', function($scope, $routeParams) {
+     $scope.name = 'ChapterController';
+     $scope.params = $routeParams;
+ })
 
-  /**
-   * AppController
-   * Description: Sets up a controller
-   */
-  .controller('AppController', ['$scope', function($scope) {
-    $scope.username = 'Nick';
+.config(function($routeProvider, $locationProvider) {
+  $routeProvider
+   .when('/Book/:bookId', {
+    templateUrl: 'book.html',
+    controller: 'BookController',
+    resolve: {
+      // I will cause a 1 second delay
+      delay: function($q, $timeout) {
+        var delay = $q.defer();
+        $timeout(delay.resolve, 1000);
+        return delay.promise;
+      }
+    }
+  })
+  .when('/Book/:bookId/ch/:chapterId', {
+    templateUrl: 'chapter.html',
+    controller: 'ChapterController'
+  });
 
-    $scope.usersObject = [{
-      firstname: 'BB',
-      lastname: 'King'
-    }, {
-      firstname: 'Ray',
-      lastname: 'Charles'
-    }, {
-      firstname: 'Muddy',
-      lastname: 'Waters'
-    }, {
-      firstname: 'Lightnin',
-      lastname: 'Hopkins'
-    }, {
-      firstname: 'Howlin',
-      lastname: 'Wolf'
-    }];
-  }]);
-
-})();
+  // configure html5 to get links working on jsfiddle
+  $locationProvider.html5Mode(true);
+});
